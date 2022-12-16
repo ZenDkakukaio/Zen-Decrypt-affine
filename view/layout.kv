@@ -1,0 +1,86 @@
+<My_Layout_encrypt>:
+    Screen:
+        name: "sc1"
+        id: id_sc1
+        size_hint: None, None
+        size: root.width, root.height
+
+
+
+        MDScreen:
+            size_hint: None, None
+            pos_hint: {"center_x": .5, "center_y": .5}
+            md_bg_color: 0, 0, 0, .8
+            size: id_sc1.width, id_sc1.height
+            Image:
+                source: root.data_seconde_bg
+                size_hint: None, None
+                pos_hint: {"center_x": .5, "center_y": .5}
+                size: root.width, root.height
+
+
+            MDFloatLayout:
+                size_hint: None, None
+                pos_hint: {"center_x": .5, "center_y": .65}
+                size: dp(500), dp(500)
+
+                Image:
+                    source: root.data_logo
+                    size_hint: None, None
+                    pos_hint: {"center_x": .5, "center_y": .65}
+                    size: dp(180), dp(180)
+
+
+            MDFloatLayout:
+                size_hint: None, None
+                pos_hint: {"center_x": .5, "center_y": .4}
+                size: dp(800), dp(500)
+
+                Image:
+                    source: root.data_bg
+                    size_hint: None, None
+                    pos_hint: {"center_x": .5, "center_y": .4}
+                    size: dp(800), dp(500)
+
+
+                Image:
+                    source: root.data_m_encrypt
+                    size_hint: None, None
+                    pos_hint: {"center_x": .25, "center_y": .65}
+                    size: dp(100), dp(100)
+
+                MDTextField:
+                    id: id_textfield_encrypt
+                    hint_text: "Entrer la clé à décrypter..."
+                    mode: "fill"
+                    fill_color: 1, 1, 1, .85
+                    pos_hint: {"center_x": .6, "center_y": .62}
+                    size_hint: .5, None
+
+                MDTextField:
+                    id: id_textfield_decrypt
+                    hint_text: ""
+                    mode: "fill"
+                    fill_color: 1, 1, 1, .85
+                    pos_hint: {"center_x": .6, "center_y": .32}
+                    size_hint: .5, None
+
+
+
+                Image:
+                    source: root.data_m_decrypt
+                    size_hint: None, None
+                    pos_hint: {"center_x": .25, "center_y": .35}
+                    size: dp(100), dp(100)
+
+
+
+
+
+            MDRaisedButton:
+                id: id_button_test
+                pos_hint: {"center_x": .5, "center_y": .1}
+                #theme_textcolor = "Custom"
+                md_bg_color: 1, 0, 0, .45
+                text: "Récuperer le contenu de la clé..."
+                on_release: root.push_process(id_textfield_encrypt.text)
